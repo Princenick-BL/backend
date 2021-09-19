@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from .serializer import EmployeeSerializer,VilleSerializer,PaysSerializer,MarqueSerializer
 from .models import Employés,Pays,Ville,Marques
+from django.http import HttpResponse
 # Create your views here.
 
 class PaysView(generics.ListAPIView):
@@ -20,4 +21,6 @@ class EmployeeView(generics.ListAPIView):
     queryset= Employés.objects.all()
     serializer_class = EmployeeSerializer
 
+def Home(req):
+    return HttpResponse("Bienvenu")
 
